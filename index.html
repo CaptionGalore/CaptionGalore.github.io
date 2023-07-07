@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Tracker</title>
+</head>
+<body>
+    <h1>Flight Tracker</h1>
+    <label for="flightCode">Enter Flight Code:</label>
+    <input type="text" id="flightCode" placeholder="Enter flight code" />
+    <button onclick="submitFlightCode()">Submit</button>
+    <br /><br />
+    <label for="flightDetails">Flight Details:</label>
+    <textarea id="flightDetails" rows="5" cols="50" readonly></textarea>
+
+    <script>
+        function submitFlightCode() {
+            const flightCode = document.getElementById("flightCode").value;
+            const apiKey = "e2a87271d41cdb92004eb76d540cdb01"; // Replace with your AviationStack API key
+            const url = `http://api.aviationstack.com/v1/flights?access_key=${apiKey}&flight_iata=${flightCode}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const flightDetails = JSON.stringify(data, null, 2);
+                    document.getElementById("flightDetails").value = flightDetails;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById("flightDetails").value = 'Failed to fetch flight details.';
+                });
+        }
+    </script>
+</body>
+</html>
