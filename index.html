@@ -16,7 +16,7 @@
         function submitFlightCode() {
             const flightCode = document.getElementById("flightCode").value;
             const apiKey = "cG7nTjiT6aioG5leXgfhR95pX5QDp94u"; // Replace with your AeroAPI key
-            const url = `https://api.aeroapi.io/flight/${flightCode}?key=${apiKey}`;
+            const url = `https://api.aeroapi.com/aeroapi/flight/${flightCode}?key=${apiKey}`;
 
             fetch(url)
                 .then(response => response.json())
