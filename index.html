@@ -16,7 +16,7 @@
         function submitFlightCode() {
             const flightCode = document.getElementById("flightCode").value;
             const apiKey = "e2a87271d41cdb92004eb76d540cdb01"; // Replace with your AviationStack API key
-            const url = `http://api.aviationstack.com/v1/flights?access_key=${apiKey}&flight_iata=${flightCode}`;
+            const url = `https://api.aviationstack.com/v1/flights?access_key=${apiKey}&flight_iata=${flightCode}`;
 
             fetch(url)
                 .then(response => response.json())
